@@ -5,12 +5,15 @@ const key = '371686652c2d4820b5caf9b8a161e109'
 export default function Home() {
 
   const [datas, setDatas] = useState([])
+  const [load, setLoad] = useState(false)
 
   const api = async () => {
+    setLoad(true)
     const api2 = await fetch(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${key}`)
     const data = await api2.json()
     const jsonnya = data.articles
     setDatas(jsonnya)
+    setLoad(false)
   }
   useEffect(() => {
     api()
@@ -64,11 +67,23 @@ export default function Home() {
     </div>
   }
 
+  // if the data that given from API its undefine butno errord try using loading
   return <section className='my-5'>
-    <div className='grid grid-cols-1 gap-20 xl:gap-40 xl:grid-cols-2'>
-      <Main />
-      <News />
-      <Recomend />
-    </div>
+    {datas?.length > 0 
+      ? (
+        <div className='grid grid-cols-1 gap-20 xl:gap-40 xl:grid-cols-2'>
+          <Main />
+          <News />
+          <Recomend />
+          <div className='text-center bottom-0 my-2 text-inter text-[10px]'>
+            Made by Zedd with ❤️
+          </div>
+        </div>
+      ) : (
+        <div className='my-40 mx-auto text-center text-lg'>
+          Loading ...
+        </div>
+      )
+    }
   </section>
 }
