@@ -4,7 +4,7 @@ import Home from './page/Home'
 function App() {
 
   return (
-    <div className='px-5'>
+    <div className='px-8 lg:px-20'>
       <Nav />
       <Home />
     </div>
