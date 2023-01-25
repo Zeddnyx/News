@@ -38,7 +38,7 @@ export default function Nav() {
       </button>
 
       <div className={!nav ? 'hidden' : 'lg:hidden z-30 left-0 top-0 text-[18px] absolute w-full h-screen' }>
-        <ul className=' flex flex-col gap-10 py-40 absolute  top-0 right-0 w-[70%] h-[100%] px-10 bg-white '> 
+        <ul className=' flex flex-col gap-10 py-40 absolute border-l border-white top-0 right-0 w-[70%] h-[100%] px-10 bg-white '> 
           <Li li='Home' /> 
           <Li li='New' />
           <Li li='Popular' />
