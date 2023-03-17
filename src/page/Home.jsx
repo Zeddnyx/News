@@ -38,7 +38,7 @@ export default function Home() {
   }
    
   const News = () => {
-    return <article className='bg-darkB w-full px-5 py-5 text-white grid gap-5 lg:my-5 lg:w-[500px] h-[600px] overflow-x-auto'>
+    return <article className='bg-darkB w-full px-5 py-5 text-white grid gap-5 lg:my-5 h-[600px] overflow-x-auto'>
         <h2 className='font-extrabold text-4xl mb-5 text-orange'>New</h2>
         {datas.map((data, i) => {
           return <div key={i}>
@@ -52,15 +52,15 @@ export default function Home() {
   }
 
   const Recomend = () => {
-    return <div className='grid gap-5 xl:grid-cols-3 xl:gap-96'>
-      {datas.map((data, i) => {
-        return <a href={data.url} className=' grid grid-cols-2 gap-4 h-60 xl:w-80'  key={i}>
-          <div className='bg-grayB h-56 w- e'>
+    return <div className='grid gap-5 md:grid-cols-2 w-full xl-2:grid-cols-3 xl:col-span-2 mx-auto'>
+      {datas.slice(0,10).map((data, i) => {
+        return <a href={data.url} className=' grid grid-cols-4 gap-4 h-60 w-full'  key={i}>
+          <div className='bg-grayB h-56 w-full col-span-2'>
           </div>
 
-          <div className='h-60 grid gap-3'>
-            <h2 className='text-5xl font-extrabold text-grayB'>0{i}</h2>
-            <h1 className='font-bold text-xl overflow-y-auto hover:text-red'>{data.title}</h1>
+          <div className='h-44 w-full grid gap-5 xl:gap-14'>
+            <h2 className='text-5xl xl:text-3xl font-extrabold text-grayB'>0{i}</h2>
+            <h1 className='font-bold text-xl xl:text-md overflow-hidden hover:text-red'>{data.title}</h1>
           </div>
         </a>
       })}
@@ -71,7 +71,7 @@ export default function Home() {
   return <section className='my-20'>
     {datas?.length > 0 
       ? (
-        <div className='grid grid-cols-1 gap-20 xl:gap-40 xl:grid-cols-2'>
+        <div className='grid grid-cols-1 gap-20 xl:gap-28  xl:grid-cols-2 items-start'>
           <Main />
           <News />
           <Recomend />
